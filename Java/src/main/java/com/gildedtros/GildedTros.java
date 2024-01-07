@@ -23,15 +23,13 @@ class GildedTros {
                 if (item.quality < 50) {
                     item.quality = item.quality + 1;
                 }
+            } else if (isItemBackstagePasses(item)) {
+                item.quality = 0;
             } else {
-                if (!isItemBackstagePasses(item)) {
-                    if (item.quality > 0) {
-                        if (!item.name.equals("B-DAWG Keychain")) {
-                            item.quality = item.quality - 1;
-                        }
+                if (item.quality > 0) {
+                    if (!item.name.equals("B-DAWG Keychain")) {
+                        item.quality = item.quality - 1;
                     }
-                } else {
-                    item.quality = 0;
                 }
             }
         }
