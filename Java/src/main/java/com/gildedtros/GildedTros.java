@@ -20,7 +20,7 @@ class GildedTros {
     private void updateQualityAfterExpiration(Item item) {
         if (item.sellIn < 0) {
             if (!item.name.equals("Good Wine")) {
-                if (!item.name.equals("Backstage passes for Re:Factor") && !item.name.equals("Backstage passes for HAXX")) {
+                if (!isItemBackstagePasses(item)) {
                     if (item.quality > 0) {
                         if (!item.name.equals("B-DAWG Keychain")) {
                             item.quality = item.quality - 1;
@@ -39,12 +39,11 @@ class GildedTros {
 
     private void updateQuality(Item item) {
         if (item.name.equals("Good Wine")
-                || item.name.equals("Backstage passes for Re:Factor")
-                || item.name.equals("Backstage passes for HAXX")) {
+                || isItemBackstagePasses(item)) {
             if (item.quality < 50) {
                 item.quality = item.quality + 1;
 
-                if (item.name.equals("Backstage passes for Re:Factor") || item.name.equals("Backstage passes for HAXX")) {
+                if (isItemBackstagePasses(item)) {
                     if (item.sellIn < 11) {
                         if (item.quality < 50) {
                             item.quality = item.quality + 1;
@@ -71,5 +70,9 @@ class GildedTros {
         if (!item.name.equals("B-DAWG Keychain")) {
             item.sellIn = item.sellIn - 1;
         }
+    }
+
+    private boolean isItemBackstagePasses(Item item) {
+        return item.name.startsWith("Backstage passes");
     }
 }
