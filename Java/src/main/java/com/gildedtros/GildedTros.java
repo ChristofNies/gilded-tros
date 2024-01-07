@@ -38,15 +38,9 @@ class GildedTros {
     }
 
     private void updateQuality(Item item) {
-        if (!item.name.equals("Good Wine")
-                && !item.name.equals("Backstage passes for Re:Factor")
-                && !item.name.equals("Backstage passes for HAXX")) {
-            if (item.quality > 0) {
-                if (!item.name.equals("B-DAWG Keychain")) {
-                    item.quality = item.quality - 1;
-                }
-            }
-        } else {
+        if (item.name.equals("Good Wine")
+                || item.name.equals("Backstage passes for Re:Factor")
+                || item.name.equals("Backstage passes for HAXX")) {
             if (item.quality < 50) {
                 item.quality = item.quality + 1;
 
@@ -62,6 +56,12 @@ class GildedTros {
                             item.quality = item.quality + 1;
                         }
                     }
+                }
+            }
+        } else {
+            if (item.quality > 0) {
+                if (!item.name.equals("B-DAWG Keychain")) {
+                    item.quality = item.quality - 1;
                 }
             }
         }
