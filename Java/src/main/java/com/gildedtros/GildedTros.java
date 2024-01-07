@@ -60,11 +60,9 @@ class GildedTros {
                     }
                 }
             }
-        } else {
+        } else if (!item.name.equals("B-DAWG Keychain")) {
             if (item.quality > 0) {
-                if (!item.name.equals("B-DAWG Keychain")) {
-                    item.quality = item.quality - 1;
-                }
+                item.quality = item.quality - 1;
             }
         }
     }
