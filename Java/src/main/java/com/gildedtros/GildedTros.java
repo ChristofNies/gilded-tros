@@ -20,47 +20,42 @@ class GildedTros {
     private void handleExpiredItems(Item item) {
         if (item.sellIn < 0) {
             if (item.name.equals("Good Wine")) {
-                if (item.quality < 50) {
-                    item.quality = item.quality + 1;
-                }
+                increaseQuality(item);
             } else if (isItemBackstagePasses(item)) {
                 item.quality = 0;
             } else if (!item.name.equals("B-DAWG Keychain")) {
-                if (item.quality > 0) {
-                    item.quality = item.quality - 1;
-                }
+                decreaseQuality(item);
             }
         }
     }
 
+    private void decreaseQuality(Item item) {
+        if (item.quality > 0) {
+            item.quality = item.quality - 1;
+        }
+    }
+
+    private void increaseQuality(Item item) {
+        if (item.quality < 50) {
+            item.quality = item.quality + 1;
+        }
+    }
 
     private void updateQuality(Item item) {
         if (item.name.equals("Good Wine")) {
-            if (item.quality < 50) {
-                item.quality = item.quality + 1;
-            }
+            increaseQuality(item);
         } else if (isItemBackstagePasses(item)) {
-            if (item.quality < 50) {
-                item.quality = item.quality + 1;
+            increaseQuality(item);
 
-                if (isItemBackstagePasses(item)) {
-                    if (item.sellIn < 11) {
-                        if (item.quality < 50) {
-                            item.quality = item.quality + 1;
-                        }
-                    }
+            if (item.sellIn < 11) {
+                increaseQuality(item);
+            }
 
-                    if (item.sellIn < 6) {
-                        if (item.quality < 50) {
-                            item.quality = item.quality + 1;
-                        }
-                    }
-                }
+            if (item.sellIn < 6) {
+                increaseQuality(item);
             }
         } else if (!item.name.equals("B-DAWG Keychain")) {
-            if (item.quality > 0) {
-                item.quality = item.quality - 1;
-            }
+            decreaseQuality(item);
         }
     }
 
