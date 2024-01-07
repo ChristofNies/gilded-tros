@@ -8,11 +8,19 @@ public class Inventory {
             return new AgingItem(item);
         } else if (isItemBackstagePasses(item)) {
             return new BackstagePasses(item);
-        } if (isLegendaryItem(item)) {
+        } else if (isLegendaryItem(item)) {
             return new LegendaryItem(item);
+        } else if (isSmellyItem(item)) {
+            return new SmellyItem(item);
         }
 
         return new NormalItem(item);
+    }
+
+    public static boolean isSmellyItem(Item item) {
+        return item.name.equals("Duplicate Code")
+                || item.name.equals("Long Methods")
+                || item.name.equals("Ugly Variable Names");
     }
 
     public static boolean isLegendaryItem(Item item) {

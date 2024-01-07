@@ -1,18 +1,14 @@
 package com.gildedtros;
 
-public class NormalItem extends InventoryItem {
-    public NormalItem(Item item) {
+public class SmellyItem extends InventoryItem {
+    public SmellyItem(Item item) {
         super(item);
+        setDecreaseValue(NORMAL_DECREASE_VALUE * 2);
     }
 
     @Override
     protected void updateQuality() {
         decreaseQuality();
-    }
-
-    @Override
-    protected void updateExpiration() {
-        super.updateExpiration();
     }
 
     @Override
