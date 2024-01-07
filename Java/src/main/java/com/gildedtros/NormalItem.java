@@ -11,11 +11,6 @@ public class NormalItem extends InventoryItem {
     }
 
     @Override
-    protected void updateSellIn() {
-        super.updateSellIn();
-    }
-
-    @Override
     protected void updateQualityAfterExpiration() {
         decreaseQuality();
     }

@@ -1,7 +1,8 @@
 package com.gildedtros;
 
 public class Inventory {
-    private Inventory() { }
+    private Inventory() {
+    }
 
     public static InventoryItem createInventoryItem(Item item) {
         if (isAgingItem(item)) {

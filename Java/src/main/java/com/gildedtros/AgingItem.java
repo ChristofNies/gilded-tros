@@ -12,11 +12,6 @@ public class AgingItem extends InventoryItem {
     }
 
     @Override
-    protected void updateSellIn() {
-        item.sellIn--;
-    }
-
-    @Override
     protected void updateQualityAfterExpiration() {
         increaseQuality();
     }

@@ -2,7 +2,7 @@ package com.gildedtros;
 
 public abstract class InventoryItem {
 
-    public static final int NORMAL_DECREASE_VALUE= 1;
+    public static final int NORMAL_DECREASE_VALUE = 1;
 
     protected int decreaseValue;
     protected Item item;
