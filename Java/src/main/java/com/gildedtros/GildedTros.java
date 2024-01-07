@@ -10,7 +10,7 @@ class GildedTros {
     public void updateQuality() {
         for (Item item : items) {
             Inventory inventory = new Inventory(item);
-            inventory.dailyUpdate();
+            inventory.getInventoryItem().dailyUpdate();
         }
     }
 }
