@@ -17,26 +17,22 @@ public class InventoryItem {
     }
 
     protected void updateQuality() {
-        if (!item.name.equals("B-DAWG Keychain")) {
-            decreaseQuality();
+        if (item.name.equals("B-DAWG Keychain")) {
+            return;
         }
     }
 
     protected void updateExpiration() {
-        if (!item.name.equals("B-DAWG Keychain")) {
-            item.sellIn = item.sellIn - 1;
+        if (item.name.equals("B-DAWG Keychain")) {
+            return;
         }
+
+        item.sellIn = item.sellIn - 1;
     }
 
     protected void handleExpiredItems() {
-        if (!item.name.equals("B-DAWG Keychain")) {
-            decreaseQuality();
-        }
-    }
-
-    private void decreaseQuality() {
-        if (item.quality > 0) {
-            item.quality = item.quality - 1;
+        if (item.name.equals("B-DAWG Keychain")) {
+            return;
         }
     }
 

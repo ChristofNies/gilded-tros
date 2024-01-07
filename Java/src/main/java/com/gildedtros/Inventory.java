@@ -8,9 +8,15 @@ public class Inventory {
             return new AgingItem(item);
         } else if (isItemBackstagePasses(item)) {
             return new BackstagePasses(item);
+        } else if (!isLegendaryItem(item)) {
+            return new NormalItem(item);
         }
 
         return new InventoryItem(item);
+    }
+
+    private static boolean isLegendaryItem(Item item) {
+        return item.name.equals("B-DAWG Keychain");
     }
 
     private static boolean isItemBackstagePasses(Item item) {
