@@ -232,6 +232,34 @@ class GildedTrosTest {
         assertEquals(0, app.items[7].quality);
     }
 
+    @Test
+    void updateQuality_decreases_smelly_items_twice_as_fast_as_normal_item_before_its_sell_by_date() {
+        Item[] items = new Item[] { new Item("Duplicate Code",  1, 20),
+                new Item("Long Methods", 10, 10),
+                new Item("Ugly Variable Names", 5, 26) };
+        GildedTros app = new GildedTros(items);
+
+        app.updateQuality();
+
+        assertEquals(18, app.items[0].quality);
+        assertEquals(8, app.items[1].quality);
+        assertEquals(24, app.items[2].quality);
+    }
+
+    @Test
+    void updateQuality_decreases_smelly_items_twice_as_fast_as_normal_item_after_its_sell_by_date() {
+        Item[] items = new Item[] { new Item("Duplicate Code", -1, 20),
+                new Item("Long Methods", -10, 10),
+                new Item("Ugly Variable Names", -5, 26) };
+        GildedTros app = new GildedTros(items);
+
+        app.updateQuality();
+
+        assertEquals(16, app.items[0].quality);
+        assertEquals(6, app.items[1].quality);
+        assertEquals(22, app.items[2].quality);
+    }
+
     private Item[] getItems() {
         return new Item[]{
                 new Item("Ring of Cleansening Code", 10, 20),
