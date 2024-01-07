@@ -20,7 +20,7 @@ public class BackstagePasses extends InventoryItem {
     }
 
     @Override
-    protected void handleExpiredItems() {
+    protected void updateQualityAfterExpiration() {
         item.quality = 0;
     }
 }

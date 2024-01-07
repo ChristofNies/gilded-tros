@@ -4,7 +4,7 @@ public class Inventory {
     private Inventory() { }
 
     public static InventoryItem createInventoryItem(Item item) {
-        if (item.name.equals("Good Wine")) {
+        if (isAgingItem(item)) {
             return new AgingItem(item);
         } else if (isItemBackstagePasses(item)) {
             return new BackstagePasses(item);
@@ -17,13 +17,17 @@ public class Inventory {
         return new NormalItem(item);
     }
 
-    public static boolean isSmellyItem(Item item) {
+    private static boolean isAgingItem(Item item) {
+        return item.name.equals("Good Wine");
+    }
+
+    private static boolean isSmellyItem(Item item) {
         return item.name.equals("Duplicate Code")
                 || item.name.equals("Long Methods")
                 || item.name.equals("Ugly Variable Names");
     }
 
-    public static boolean isLegendaryItem(Item item) {
+    private static boolean isLegendaryItem(Item item) {
         return item.name.equals("B-DAWG Keychain");
     }
 

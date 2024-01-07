@@ -12,12 +12,12 @@ public class AgingItem extends InventoryItem {
     }
 
     @Override
-    protected void updateExpiration() {
+    protected void updateSellIn() {
         item.sellIn--;
     }
 
     @Override
-    protected void handleExpiredItems() {
+    protected void updateQualityAfterExpiration() {
         increaseQuality();
     }
 }

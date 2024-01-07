@@ -6,12 +6,11 @@ public class LegendaryItem extends InventoryItem {
     }
 
     @Override
-    protected void updateQuality() {
-
-    }
+    protected void updateQuality() { }
 
     @Override
-    protected void handleExpiredItems() {
+    protected void updateSellIn() { }
 
-    }
+    @Override
+    protected void updateQualityAfterExpiration() { }
 }

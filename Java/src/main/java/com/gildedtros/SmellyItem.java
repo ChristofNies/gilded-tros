@@ -12,7 +12,7 @@ public class SmellyItem extends InventoryItem {
     }
 
     @Override
-    protected void handleExpiredItems() {
+    protected void updateQualityAfterExpiration() {
         decreaseQuality();
     }
 }

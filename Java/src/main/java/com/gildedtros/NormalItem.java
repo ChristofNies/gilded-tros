@@ -11,12 +11,12 @@ public class NormalItem extends InventoryItem {
     }
 
     @Override
-    protected void updateExpiration() {
-        super.updateExpiration();
+    protected void updateSellIn() {
+        super.updateSellIn();
     }
 
     @Override
-    protected void handleExpiredItems() {
+    protected void updateQualityAfterExpiration() {
         decreaseQuality();
     }
 }

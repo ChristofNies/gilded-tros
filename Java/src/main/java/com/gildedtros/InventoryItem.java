@@ -14,22 +14,20 @@ public abstract class InventoryItem {
 
     public void performDailyUpdate() {
         updateQuality();
-        updateExpiration();
+        updateSellIn();
 
         if (item.sellIn < 0) {
-            handleExpiredItems();
+            updateQualityAfterExpiration();
         }
     }
 
-    protected void updateExpiration() {
-        if (!Inventory.isLegendaryItem(item)) {
-            item.sellIn--;
-        }
+    protected void updateSellIn() {
+        item.sellIn--;
     }
 
     protected abstract void updateQuality();
 
-    protected abstract void handleExpiredItems();
+    protected abstract void updateQualityAfterExpiration();
 
     protected void increaseQuality() {
         if (item.quality < 50) {
