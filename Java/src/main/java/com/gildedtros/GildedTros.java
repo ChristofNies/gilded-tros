@@ -38,8 +38,11 @@ class GildedTros {
     }
 
     private void updateQuality(Item item) {
-        if (item.name.equals("Good Wine")
-                || isItemBackstagePasses(item)) {
+        if (item.name.equals("Good Wine")) {
+            if (item.quality < 50) {
+                item.quality = item.quality + 1;
+            }
+        } else if (isItemBackstagePasses(item)) {
             if (item.quality < 50) {
                 item.quality = item.quality + 1;
 
