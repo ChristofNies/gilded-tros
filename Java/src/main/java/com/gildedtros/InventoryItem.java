@@ -7,7 +7,7 @@ public class InventoryItem {
         this.item = item;
     }
 
-    public void dailyUpdate() {
+    public void performDailyUpdate() {
         updateQuality();
         updateExpiration();
 
@@ -17,17 +17,7 @@ public class InventoryItem {
     }
 
     protected void updateQuality() {
-        if (isItemBackstagePasses()) {
-            increaseQuality();
-
-            if (item.sellIn < 11) {
-                increaseQuality();
-            }
-
-            if (item.sellIn < 6) {
-                increaseQuality();
-            }
-        } else if (!item.name.equals("B-DAWG Keychain")) {
+        if (!item.name.equals("B-DAWG Keychain")) {
             decreaseQuality();
         }
     }
@@ -39,9 +29,7 @@ public class InventoryItem {
     }
 
     protected void handleExpiredItems() {
-        if (isItemBackstagePasses()) {
-            item.quality = 0;
-        } else if (!item.name.equals("B-DAWG Keychain")) {
+        if (!item.name.equals("B-DAWG Keychain")) {
             decreaseQuality();
         }
     }
@@ -56,9 +44,5 @@ public class InventoryItem {
         if (item.quality < 50) {
             item.quality = item.quality + 1;
         }
-    }
-
-    private boolean isItemBackstagePasses() {
-        return item.name.startsWith("Backstage passes");
     }
 }
