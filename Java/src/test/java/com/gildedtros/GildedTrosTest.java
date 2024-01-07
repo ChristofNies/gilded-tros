@@ -260,6 +260,16 @@ class GildedTrosTest {
         assertEquals(22, app.items[2].quality);
     }
 
+    @Test
+    void updateQuality_smelly_items_can_not_be_negative() {
+        Item[] items = new Item[] { new Item("Duplicate Code", 10, 0) };
+        GildedTros app = new GildedTros(items);
+
+        app.updateQuality();
+
+        assertEquals(0, app.items[0].quality);
+    }
+
     private Item[] getItems() {
         return new Item[]{
                 new Item("Ring of Cleansening Code", 10, 20),
